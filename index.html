@@ -18,14 +18,38 @@
 
             <section>
                 <h2>Add a Comment</h2>
-                <!--  
-                put a form here for entering a new comment
-                the user must select a rating, and enter a name, title, and comment body
-                before the comment can be saved to the server
-                for the rating selection, use the Angular Bootstrap Rating directive 
-                http://angular-ui.github.io/bootstrap/#/rating
-                their script file is included below
-                -->
+
+                <form ng-submit="addComment()">
+
+                    <div class="form-group">
+                        <label>Rating: </label>
+                        <rating max="5" ng-model="newComment.rating"></rating>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment-name">Name</label>
+                        <input type="text" id="comment-name" class="form-control"
+                               placeholder="Your name" ng-model="newComment.name"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment-title">Title</label>
+                        <input type="text" id="comment-title" class="form-control"
+                               placeholder="Title of Review" ng-model="newComment.title"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment-body">Body</label>
+                        <input type="text" id="comment-body" class="form-control"
+                               placeholder="Your Review" ng-model="newComment.body"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" ng-disabled="inserting">Add Comment</button>
+                        <img src="img/ajax-spinner.gif" ng-if="inserting"/>
+                    </div>
+
+                </form>                
             </section>
 
             <section>
@@ -45,3 +69,13 @@
         <script src="js/app.js"></script>
     </body>
 </html>
+
+                <!--  
+                put a form here for entering a new comment
+                the user must select a rating, and enter a name, title, and comment body
+                before the comment can be saved to the server
+                for the rating selection, use the Angular Bootstrap Rating directive 
+                http://angular-ui.github.io/bootstrap/#/rating
+                their script file is included below
+                -->
+
