@@ -8,11 +8,17 @@
 var reviewUrl = 'https://api.parse.com/1/classes/reviews';
 
 var rated = false;
-angular.module('ReviewApp', ['ui.bootstrap'])
+angular.module('ajax-challenge', ['ui.bootstrap'])
     .config(function($httpProvider){
-        $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'p9uK4CiI4mARDs4GlSi6v4HxKtpr2EDsJXDfymGR';
-        $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'EhkIN0CxuLCNeajt3NABkmYM0g9OLINZKqVI0O2w';
+        $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'rWHB9XfUqhYd3Myp91xX67RhLZn7EoH4kLsfyYWj';
+        $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'VZqjVx2nBfdN2B67Kxmy3VLitUifmaS9TFVEwtgE';
     })
+    
+    var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+    testObject.save({foo: "bar"}).then(function(object) {
+      alert("yay! it worked");
+    });
     
     .controller('CommentController', function($scope, $http) {
         
