@@ -15,8 +15,9 @@ angular.module('ReviewApp', ['ui.bootstrap'])
     })
     
     .controller('CommentController', function($scope, $http) {
+        
         $scope.refreshComments = function() {
-            $http.get(reviewUrl + '?where={"done":false}')
+            $http.get(reviewUrl + '?where={"done":false}') //GET
                 .success(function (data){
                     $scope.comments = data.results;
                 });
@@ -39,10 +40,7 @@ angular.module('ReviewApp', ['ui.bootstrap'])
                     .finally(function() {
                         $scope.inserting = false;
                     });
-            } else {
-                
-            }
-            
+            }             
         };
         
         $scope.rated = function() {
@@ -52,14 +50,14 @@ angular.module('ReviewApp', ['ui.bootstrap'])
             $http.put(reviewUrl + '/' + comment.objectId, comment) 
         };
 
-        $scope.incrementVotes = function(comment, amount) { //PUT
+        $scope.incrementVotes = function(comment, value) { //PUT
             var postData = {
                 votes: {
                     __op: "Increment",
-                    amount: amount
+                    amount: value
                 }
             };
-            if(comment.votes + amount != -1) {
+            if(comment.votes + value != -1) {
                 $scope.updating = true;
                 $http.put(reviewUrl + '/' + comment.objectId, postData)
                     .success(function(respData) {
