@@ -14,12 +14,6 @@ angular.module('ajax-challenge', ['ui.bootstrap'])
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'VZqjVx2nBfdN2B67Kxmy3VLitUifmaS9TFVEwtgE';
     })
     
-    var TestObject = Parse.Object.extend("TestObject");
-    var testObject = new TestObject();
-    testObject.save({foo: "bar"}).then(function(object) {
-      alert("yay! it worked");
-    });
-    
     .controller('CommentController', function($scope, $http) {
         
         $scope.refreshComments = function() {
@@ -86,6 +80,5 @@ angular.module('ajax-challenge', ['ui.bootstrap'])
             timeoutCode = setTimeout(function(){
                 $scope.refreshComments();
             },delayInMs);
-            
         };
     });
