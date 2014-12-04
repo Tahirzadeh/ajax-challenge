@@ -10,8 +10,8 @@ var reviewUrl = 'https://api.parse.com/1/classes/reviews';
 var rated = false;
 angular.module('reviews', ['ui.bootstrap'])
     .config(function($httpProvider){
-        $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'rWHB9XfUqhYd3Myp91xX67RhLZn7EoH4kLsfyYWj';
-        $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'VZqjVx2nBfdN2B67Kxmy3VLitUifmaS9TFVEwtgE';
+        $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'p9uK4CiI4mARDs4GlSi6v4HxKtpr2EDsJXDfymGR';
+        $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'EhkIN0CxuLCNeajt3NABkmYM0g9OLINZKqVI0O2w';
     })
     
     .controller('CommentController', function($scope, $http) {
