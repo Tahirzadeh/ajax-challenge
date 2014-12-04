@@ -8,7 +8,7 @@
 var reviewUrl = 'https://api.parse.com/1/classes/reviews';
 
 var rated = false;
-angular.module('ajax-challenge', ['ui.bootstrap'])
+angular.module('reviews', ['ui.bootstrap'])
     .config(function($httpProvider){
         $httpProvider.defaults.headers.common['X-Parse-Application-Id'] = 'rWHB9XfUqhYd3Myp91xX67RhLZn7EoH4kLsfyYWj';
         $httpProvider.defaults.headers.common['X-Parse-REST-API-Key'] = 'VZqjVx2nBfdN2B67Kxmy3VLitUifmaS9TFVEwtgE';
