@@ -27,8 +27,6 @@ angular.module('reviews', ['ui.bootstrap'])
         $scope.newComment = {done: false};
         
         $scope.addComment = function() { //POST
-            $scope.refreshComments();
-            if(rated) {
                 $scope.inserting = true;
                 $http.post(reviewUrl, $scope.newComment)
                     .success(function(responseData) {
@@ -37,15 +35,14 @@ angular.module('reviews', ['ui.bootstrap'])
                         $scope.newComment = {done: false};
                         $scope.valid = true;
                     })
+                    .error(function(err) {
+                        console.log(err);
+                    })
                     .finally(function() {
                         $scope.inserting = false;
-                    });
-            }             
+                    });          
         };
-        
-        $scope.rated = function() {
-            rated = true;
-        }
+
         $scope.updateComment = function(comment) {
             $http.put(reviewUrl + '/' + comment.objectId, comment) 
         };
